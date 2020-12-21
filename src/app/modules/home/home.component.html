@@ -1,0 +1,48 @@
+<ng-container *ngIf="movieList$ | async as movieList">
+    <div *ngIf="bestAverageRate(movieList) as movie" class="homeImg">
+        <img [src]="portalImg(movie.backdrop_path)" alt="" width="100%">
+        <div class="imgText">
+            <a [routerLink]="['/movie/'+movie.id]"> <h1>{{movie.title}}</h1></a>
+            <div>
+                <h2>Más popular</h2>
+                {{ '⭐'.repeat(movie.vote_average * 0.5)}}
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<div fxLayout="column" fxLayoutGap="20px" class="container">
+    <div>
+        <h4>Películas populares</h4>
+        <carousel [loop]="true" [height]="120" *ngIf="movieList$ | async as movieList">
+            <div class="carousel-cell" *ngFor="let movie of movieList">
+                <app-video-card [movieData]="movie">
+                </app-video-card>
+            </div>
+        </carousel>
+    </div>
+
+
+    <div>
+        <h4>Series populares</h4>
+        <carousel [loop]="true" [height]="120" *ngIf="serieList$ | async as serieList">
+            <div class="carousel-cell" *ngFor="let serie of serieList">
+                <app-video-card [movieData]="serie">
+                </app-video-card>
+            </div>
+        </carousel>
+    </div>
+
+    <div class="center-text">
+        
+        <h4>Películas más aclamadas</h4>
+        <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+            <div *ngFor="let movie of moviesTopRatesList$ | async">
+                <app-video-card [movieData]="movie" [horizontal]="false">
+                </app-video-card>
+            </div>
+        </div>
+    </div>
+
+</div>

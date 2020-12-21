@@ -1,0 +1,7 @@
+<div class="inline">
+    <form (submit)="find()" [formGroup]="form">
+        <input  type="text" class="browser" placeholder="Buscar" formControlName="query">
+        <span><a [routerLink]="['/favorites']" routerLinkActive="router-link-active"><abbr title="Favoritos">💗</abbr></a></span>
+        <span><a [routerLink]="['/home']" routerLinkActive="router-link-active"><abbr title="HOME">🏡</abbr></a></span>
+    </form>
+</div>

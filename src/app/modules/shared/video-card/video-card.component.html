@@ -1,0 +1,11 @@
+<div *ngIf="!isSerie">
+    <img *ngIf="!horizontal" [src]="getImg(videoData.poster_path)">
+    <img *ngIf="horizontal" [src]="getImg(videoData.backdrop_path)">
+</div>
+
+<div *ngIf="isSerie">
+    <a [routerLink]="['/movie', videoData.id]" routerLinkActive="router-link-active" >
+        <img *ngIf="!horizontal" [src]="getImg(videoData.poster_path)">
+        <img *ngIf="horizontal" [src]="getImg(videoData.backdrop_path)">
+    </a>
+</div>

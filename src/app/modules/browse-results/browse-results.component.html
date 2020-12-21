@@ -1,0 +1,22 @@
+<div class="space">
+</div>
+
+<div class="center-text">
+        
+    <h4>Resultados de la busqueda</h4>
+
+    <div *ngIf="moviesResult$ | async as movies">
+        <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="container-results">
+            <div *ngFor="let movie of movies" fxFlex="1 2 calc(10em + 20px)" class="result">
+                <app-video-card [movieData]="movie" [horizontal]="false">
+                </app-video-card>
+            </div>
+        </div>
+        <div *ngIf="movies.length === 0" class="center-text">
+            <h4>Sin resultados</h4> 
+        </div>
+    </div>
+    <div *ngIf="!(moviesResult$ | async)" class="center-text">
+        <h4>CARGANDO...</h4> 
+    </div>
+</div>

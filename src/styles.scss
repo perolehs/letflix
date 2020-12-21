@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: #141414;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: lighter;
+}
+
+h2, h3, h4, h5, h6 {
+    color: #DC7474;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.space {
+    height: 75px;
+    background: #202020;
+}

@@ -1,0 +1,29 @@
+<div class="space">
+</div>
+
+<div class="container">
+    <h3> Mis peliculas favoritas</h3>
+    <div fxLayout="column" fxLayoutGap="20px" *ngIf="favoritesMovies$ | async as favorites">
+        <div *ngIf="favorites.length > 0">
+            <div fxLayout="row" *ngFor="let movie of favorites" class="favorites">
+                <div>
+                    <app-video-card [movieData]="movie" [horizontal]="true">
+                    </app-video-card>
+                </div>
+                <div class="info">
+                    <a [routerLink]="['/movie/'+movie.id]"><h3>{{movie.title}}</h3></a> 
+                    <h5>{{getYear(movie.release_date)}}</h5>
+    
+                    <a (click)="dropFavorite(movie.id)">
+                        <small>💔 Eliminar de favoritos</small> 
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="favorites.length === 0">
+            <div>
+                Aún no tienes favoritos.
+            </div> 
+        </div>
+    </div>
+</div>

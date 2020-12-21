@@ -1,0 +1,81 @@
+.bigImg {
+    height: 70%;
+    margin-top: -10%;
+    overflow: hidden;
+}
+
+.container {
+    height: 100%;
+    position: absolute;
+}
+
+.videoImg {
+    width: 40%;
+    padding: 2em;
+    text-align: center;
+}
+
+.details {
+    position: absolute;
+    top: 30%;
+}
+
+.title {
+    padding: 1em 0;
+    & > h1 {
+        margin-bottom: 0.2em;
+    }
+}
+
+.bag {
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 13px;
+}
+
+.color-gold {
+    color: #636363;
+    background-color: #d4b748;
+}
+
+.color-white {
+    background: #f3f2f2;
+    color: gray;
+    margin: 0 0.2rem;
+}
+
+.info {
+    padding: 2em 5em;
+    color: #cfcfcf;
+}
+
+.favoritos {
+    padding: 3em 0;
+    position: absolute;
+    z-index: 10;
+    width: 30%;
+    color: white;
+
+    a {
+        cursor: pointer;
+        &:hover {
+            color: gray;
+        }
+    }
+
+    button {
+        color: white;
+        background: #cc3f3f;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background: #d31515;
+        }
+    }
+}
+
+.genres {
+    padding: 1.5rem 0;
+}

@@ -1,0 +1,48 @@
+<div *ngIf="!!movie" class="container">
+
+    <div class="bigImg">
+        <img [src]="portalImg(movie.backdrop_path, true)" alt="" width="100%">
+    </div>
+
+    <div fxLayout="row">
+        <div class="videoImg"></div>
+        <div fxFlex="3 3 auto" class="info">
+            <div>
+                {{movie.overview}}
+            </div>
+
+            <div class="favoritos" fxLayout="row" fxLayoutAlign="space-between">
+                <div>
+                    <a *ngIf="!(isFavorite$ | async)" (click)="addFavorite()">
+                        💗 Agregar a favoritos
+                    </a>
+                    <a *ngIf="(isFavorite$ | async)" (click)="dropFavorite()">
+                        💔 Eliminar de favoritos
+                    </a>
+                </div>
+                <div>
+                    <button (click)="back()">Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="details">
+        <div class="videoImg">
+            <div>
+                <img [src]="portalImg(movie.poster_path, false)" alt="" width="100%">
+            </div>
+            <div class="genres">
+                <span class="bag color-white" *ngFor="let genre of movie.genres">
+                    {{ genre.name }}
+                </span>
+            </div>
+        </div>
+        <div fxFlex="3 3 auto" class="title">
+            <h1>{{movie.title}} <span class="bag color-gold">
+                    {{ movie.adult ? '+18': 'PG-13'}}
+                </span></h1>
+            {{ '⭐'.repeat(movie.vote_average * 0.5)}}
+        </div>
+    </div>
+</div>
